@@ -6,8 +6,8 @@ Plugin URI:    https://github.com/m266/exclude-pages-2
 Description:   Seiten aus der Navigation ausschliessen
 Author:        Hans M. Herbrand
 Author URI:    https://www.web266.de
-Version:       2.2
-Date:          2017-02-26
+Version:       2.2.1
+Date:          2017-03-07
 License:       GNU General Public License v2 or later
 License URI:   http://www.gnu.org/licenses/gpl-2.0.html
 Credits:       Simon Wheatley
