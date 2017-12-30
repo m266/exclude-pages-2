@@ -12,6 +12,10 @@ pages exclude from navigation.
 2. Activate the plugin through the \'Plugins\' menu in WordPress
 
 == Changelog ==
+Version 2.2.3
+1. Tested up to 4.9.1
+2. Bugfix
+
 Version 2.2.2
 1. Tested up to 4.9.1
 2. Bugfix language strings
