@@ -3,11 +3,11 @@
 /*
 Plugin Name:   Exclude Pages 2
 Plugin URI:    https://github.com/m266/exclude-pages-2
-Description:   Seiten aus der Navigation ausschliessen
+Description:   Seiten aus der Navigation ausschliessen, pages exclude from navigation
 Author:        Hans M. Herbrand
 Author URI:    https://www.web266.de
-Version:       2.2.1
-Date:          2017-03-07
+Version:       2.2.2
+Date:          2017-12-30
 License:       GNU General Public License v2 or later
 License URI:   http://www.gnu.org/licenses/gpl-2.0.html
 Credits:       Simon Wheatley
@@ -214,11 +214,11 @@ function ep_admin_sidebar_wp25() {
   if (ep_this_page_included())
     echo 'checked="checked"';
   echo ' />';
-  echo '			' . __('Ja', EP_TD) . '</label>';
+  echo '			' . 'Ja', EP_TD . '</label>';
   echo '		<input type="hidden" name="ep_ctrl_present" value="1" /></p>';
   if ($nearest_excluded_ancestor !== false) {
     echo '<p class="ep_exclude_alert"><em>';
-    printf(__('<b>Hinweis:</b><br>Die Elternseite dieser Seite wird momentan nicht angezeigt. Zum &Auml;ndern hier klicken:<br>(<a href="%1$s" title="%2$s">Elternseite bearbeiten</a>).', EP_TD), "post.php?action=edit&amp;post=$nearest_excluded_ancestor", __('Elternseite bearbeiten', EP_TD));
+    printf('<b>Hinweis:</b><br>Die Elternseite dieser Seite wird momentan nicht angezeigt. Zum &Auml;ndern hier klicken:<br>(<a href="%1$s" title="%2$s">Elternseite bearbeiten</a>).', EP_TD, "post.php?action=edit&amp;post=$nearest_excluded_ancestor", 'Elternseite bearbeiten', EP_TD);
     echo '</em></p>';
   }
   echo '		</div><!-- .inner --></div><!-- .outer -->';
@@ -251,13 +251,13 @@ function ep_has_menu() {
 function ep_admin_css() {
   echo <<<END
 <style type="text/css" media="screen">
-	.ep_exclude_alert { font-size: 11px; }
-	.new-admin-wp25 { font-size: 11px; background-color: #fff; }
-	.new-admin-wp25 .inner {  padding: 8px 12px; background-color: #EAF3FA; border: 1px solid #EAF3FA; -moz-border-radius: 3px; -khtml-border-bottom-radius: 3px; -webkit-border-bottom-radius: 3px; border-bottom-radius: 3px; }
-	#ep_admin_meta_box .inner {  padding: inherit; background-color: transparent; border: none; }
-	#ep_admin_meta_box .inner label { background-color: none; }
-	.new-admin-wp25 .exclude_alert { padding-top: 5px; }
-	.new-admin-wp25 .exclude_alert em { font-style: normal; }
+  .ep_exclude_alert { font-size: 11px; }
+  .new-admin-wp25 { font-size: 11px; background-color: #fff; }
+  .new-admin-wp25 .inner {  padding: 8px 12px; background-color: #EAF3FA; border: 1px solid #EAF3FA; -moz-border-radius: 3px; -khtml-border-bottom-radius: 3px; -webkit-border-bottom-radius: 3px; border-bottom-radius: 3px; }
+  #ep_admin_meta_box .inner {  padding: inherit; background-color: transparent; border: none; }
+  #ep_admin_meta_box .inner label { background-color: none; }
+  .new-admin-wp25 .exclude_alert { padding-top: 5px; }
+  .new-admin-wp25 .exclude_alert em { font-style: normal; }
 </style>
 END;
 }
@@ -272,11 +272,11 @@ function ep_admin_js() {
   echo <<<END
 <script type="text/javascript">
 //<![CDATA[
-	jQuery( '#ep_explain_more' ).hide();
-	jQuery( '#ep_toggle_more' ).click( function() {
-		jQuery( '#ep_explain_more' ).toggle();
-		return false;
-	} );
+  jQuery( '#ep_explain_more' ).hide();
+  jQuery( '#ep_toggle_more' ).click( function() {
+    jQuery( '#ep_explain_more' ).toggle();
+    return false;
+  } );
 //]]>
 </script>
 END;
@@ -309,7 +309,7 @@ function ep_init() {
 function ep_admin_init() {
 // Add panels into the editing sidebar(s)
   global $wp_version;
-  add_meta_box('ep_admin_meta_box', __('Seite in der Navigation anzeigen', EP_TD), 'ep_admin_sidebar_wp25', 'page', 'side', 'low');
+  add_meta_box('ep_admin_meta_box', 'Seite in der Navigation anzeigen', EP_TD, 'ep_admin_sidebar_wp25', 'page', 'side', 'low');
 // Set the exclusion when the post is saved
   add_action('save_post', 'ep_update_exclusions');
 // Add the JS & CSS to the admin header
