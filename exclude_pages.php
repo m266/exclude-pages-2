@@ -2,11 +2,11 @@
 /*
 Plugin Name:   WP H-Exclude Pages
 Plugin URI:    https://github.com/m266/exclude-pages-2
-Description:   Seiten aus der Navigation ausschliessen
+Description:   Seiten aus der Navigation ausschliessen, wenn das Menü mit den Funktionen wp_nav_menu oder wp_page_menu erstellt wurde.
 Author:        Hans M. Herbrand
 Author URI:    https://www.web266.de
-Version:       2.2.6
-Date:          2018-12-26
+Version:       2.2.7
+Date:          2020-09-04
 License:       GNU General Public License v2 or later
 License URI:   http://www.gnu.org/licenses/gpl-2.0.html
 Credits:       Simon Wheatley
@@ -289,6 +289,7 @@ function ep_admin_sidebar_wp25() {
  * @return bool Indicates the presence or absence of menus
  * @author Simon Wheatley
  **/
+
 function ep_has_menu() {
     if (!function_exists('wp_get_nav_menus')) {
         return false;
