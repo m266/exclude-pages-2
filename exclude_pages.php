@@ -5,8 +5,8 @@ Plugin URI:    https://github.com/m266/exclude-pages-2
 Description:   Seiten aus der Navigation ausschliessen, wenn das Menü mit den Funktionen wp_nav_menu oder wp_page_menu erstellt wurde.
 Author:        Hans M. Herbrand
 Author URI:    https://www.web266.de
-Version:       2.2.7
-Date:          2020-09-04
+Version:       2.2.8
+Date:          2021-01-02
 License:       GNU General Public License v2 or later
 License URI:   http://www.gnu.org/licenses/gpl-2.0.html
 Credits:       Simon Wheatley

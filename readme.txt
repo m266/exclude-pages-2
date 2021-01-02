@@ -1,6 +1,6 @@
 === WP H-Exclude Pages ===
 Requires at least: 4.0
-Tested up to: 5.5.1
+Tested up to: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,9 @@ pages exclude from navigation.
 2. Activate the plugin through the \'Plugins\' menu in WordPress
 
 == Changelog ==
+Version 2.2.8
+1. Tested up to: 5.6
+
 Version 2.2.7
 1. Hinweis, dass Seiten nur ausgeblendet werden, wenn das Menü mit den Funktionen wp_nav_menu oder wp_page_menu erstellt wurde. 
 
