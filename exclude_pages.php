@@ -1,52 +1,32 @@
 <?php
 /*
-Plugin Name:   WP H-Exclude Pages
-Plugin URI:    https://github.com/m266/exclude-pages-2
-Description:   Seiten aus der Navigation ausschliessen, wenn das Menü mit den Funktionen wp_nav_menu oder wp_page_menu erstellt wurde.
-Author:        Hans M. Herbrand
-Author URI:    https://www.web266.de
-Version:       2.2.8
-Date:          2021-01-02
-License:       GNU General Public License v2 or later
-License URI:   http://www.gnu.org/licenses/gpl-2.0.html
-Credits:       Simon Wheatley
+Plugin Name:       WP H-Exclude Pages
+Plugin URI:        https://github.com/m266/exclude-pages-2
+Description:       Seiten aus der Navigation ausschliessen, wenn das Menü mit den Funktionen wp_nav_menu oder wp_page_menu erstellt wurde.
+Author:            Hans M. Herbrand
+Author URI:        https://www.web266.de
+Version:           2.3
+Date:              2021-02-06
+License:           GNU General Public License v2 or later
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Credits:           Simon Wheatley
 GitHub Plugin URI: https://github.com/m266/exclude-pages-2
  */
 // Externer Zugriff verhindern
 defined('ABSPATH') || exit();
 // Variablen deklarieren
 global $wpdb;
-// Makes sure the plugin is defined before trying to use it
-if (!function_exists('is_plugin_active')) {
-    require_once ABSPATH . '/wp-admin/includes/plugin.php';
-}
-// Makes sure the plugin is defined before trying to use it
-if (!function_exists('is_plugin_inactive')) {
-    require_once ABSPATH . '/wp-admin/includes/plugin.php';
-}
-// GitHub-Updater aktiv?
-// Makes sure the plugin is defined before trying to use it
-if (!function_exists('is_plugin_active')) {
-    require_once ABSPATH . '/wp-admin/includes/plugin.php';
-}
-// Makes sure the plugin is defined before trying to use it
-if (!function_exists('is_plugin_inactive')) {
-    require_once ABSPATH . '/wp-admin/includes/plugin.php';
-}
+
+if ($pagenow == 'plugins.php'){
 // GitHub-Updater inaktiv?
-if (is_plugin_inactive('github-updater/github-updater.php')) {
-    // Plugin ist inaktiv
-    // Plugin-Name im Meldungstext anpassen
-    function wphep_missing_github_updater_notice() {; // GitHub-Updater fehlt
-        ?>
-    <div class="error notice">  <!-- Wenn ja, Meldung ausgeben -->
-        <p><?php _e('Bitte das Plugin <a href="https://www.web266.de/tutorials/github/github-updater/" target="_blank">
-        <b>"GitHub-Updater"</b></a> herunterladen, installieren und aktivieren.
-        Ansonsten werden keine weiteren Updates f&uuml;r das Plugin <b>"WP H-Exclude Pages"</b> bereit gestellt!');?></p>
-    </div>
-                        <?php
+        if (!function_exists('is_plugin_inactive')) {
+            require_once ABSPATH . '/wp-admin/includes/plugin.php';
+        }
+        if (is_plugin_inactive('github-updater/github-updater.php')) {
+            ?>
+<div class="notice notice-error"><p>Bitte das Plugin <a href="https://www.web266.de/tutorials/github/github-updater/" target="_blank"><b>"GitHub-Updater"</b></a> herunterladen, installieren und aktivieren, um weiterhin Updates f&uuml;r das Plugin "WP H-Exclude Pages" zu erhalten!</p></div>
+<?php
 }
-    add_action('admin_notices', 'wphep_missing_github_updater_notice');
 }
 // Full filesystem path to this dir
 define('EP_PLUGIN_DIR', dirname(__FILE__));
