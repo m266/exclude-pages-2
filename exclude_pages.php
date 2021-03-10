@@ -5,8 +5,8 @@ Plugin URI:        https://github.com/m266/exclude-pages-2
 Description:       Seiten aus der Navigation ausschliessen, wenn das Menü mit den Funktionen wp_nav_menu oder wp_page_menu erstellt wurde.
 Author:            Hans M. Herbrand
 Author URI:        https://www.web266.de
-Version:           2.3
-Date:              2021-02-06
+Version:           2.4
+Date:              2021-03-09
 License:           GNU General Public License v2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Credits:           Simon Wheatley
@@ -14,20 +14,26 @@ GitHub Plugin URI: https://github.com/m266/exclude-pages-2
  */
 // Externer Zugriff verhindern
 defined('ABSPATH') || exit();
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Check GitHub Updater aktiv
+// Anpassungen Plugin-Name und Funktions-Name vornehmen
+if (!function_exists('is_plugin_inactive')) {
+    require_once ABSPATH . '/wp-admin/includes/plugin.php';
+}
+if (is_plugin_inactive('github-updater/github-updater.php')) {
+// E-Mail an Admin senden, wenn inaktiv
+register_activation_hook( __FILE__, 'wphep_activate' ); // Funktions-Name anpassen
+function wphep_activate() { // Funktions-Name anpassen
+$subject = 'Plugin "WP H-Exclude Pages"'; // Plugin-Name anpassen
+$message = 'Bitte das Plugin "GitHub Updater" hier https://web266.de/tutorials/github/github-updater/ herunterladen, installieren und aktivieren, um weiterhin Updates zu erhalten!';
+wp_mail(get_option("admin_email"), $subject, $message );
+}
+}
+
 // Variablen deklarieren
 global $wpdb;
 
-if ($pagenow == 'plugins.php'){
-// GitHub-Updater inaktiv?
-        if (!function_exists('is_plugin_inactive')) {
-            require_once ABSPATH . '/wp-admin/includes/plugin.php';
-        }
-        if (is_plugin_inactive('github-updater/github-updater.php')) {
-            ?>
-<div class="notice notice-error"><p>Bitte das Plugin <a href="https://www.web266.de/tutorials/github/github-updater/" target="_blank"><b>"GitHub-Updater"</b></a> herunterladen, installieren und aktivieren, um weiterhin Updates f&uuml;r das Plugin "WP H-Exclude Pages" zu erhalten!</p></div>
-<?php
-}
-}
 // Full filesystem path to this dir
 define('EP_PLUGIN_DIR', dirname(__FILE__));
 // Option name for exclusion data
