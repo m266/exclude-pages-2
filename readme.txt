@@ -1,6 +1,6 @@
 === WP H-Exclude Pages ===
 Requires at least: 4.0
-Tested up to: 5.7
+Tested up to: 5.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,10 @@ pages exclude from navigation.
 2. Activate the plugin through the \'Plugins\' menu in WordPress
 
 == Changelog ==
+Version 2.5
+1. PHP-Code überarbeitet
+2. Erinnerung an Git Updater kommt nun bei jeder Plugin-Aktivierung
+
 Version 2.4
 1. Warnung, wenn GitHub Updater inaktiv ist
 2. Tested up to: 5.7
